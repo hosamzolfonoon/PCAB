@@ -1,0 +1,164 @@
+\Information Summary 01 221222
+Number of Samples: 11435
+
+............................................................
+                   Source - Destination
+............................................................
+169.254.149.247                    : 5613
+169.254.83.9                       : 5617
+239.255.255.250                    : 4
+255.255.255.255                    : 2
+Broadcast                          : 117
+CompalIn_a0:2a:f2                  : 5
+Raspberr_58:67:86                  : 5
+Spanning-tree-(for-bridges)_00     : 60
+ff02::1:2                          : 7
+ff02::fb                           : 5
+
+............................................................
+ Protocols, Total Number of them and their Average Lenghts
+............................................................
+ARP            : 127       : 59.29
+DHCP           : 2         : 342.0
+DHCPv6         : 7         : 145.0
+MDNS           : 5         : 103.4
+Modbus/TCP     : 11227     : 67.9
+SSDP           : 4         : 217.0
+STP            : 60        : 64.0
+TCP            : 3         : 62.0
+
+............................................................
+                        Commands
+............................................................
+NaN                           : 203
+Read Discrete Inputs          : 2246
+Read Holding Registers        : 2244
+Read Input Registers          : 2245
+Write Multiple Coils          : 2246
+Write Multiple Registers      : 2246
+is at b                       : 5\Information Summary 01 221222
+Number of Samples: 11435
+
+............................................................
+                   Source - Destination
+............................................................
+169.254.149.247                    : 5613
+169.254.83.9                       : 5617
+239.255.255.250                    : 4
+255.255.255.255                    : 2
+Broadcast                          : 117
+CompalIn_a0:2a:f2                  : 5
+Raspberr_58:67:86                  : 5
+Spanning-tree-(for-bridges)_00     : 60
+ff02::1:2                          : 7
+ff02::fb                           : 5
+
+............................................................
+ Protocols, Total Number of them and their Average Lenghts
+............................................................
+ARP            : 127       : 59.29
+DHCP           : 2         : 342.0
+DHCPv6         : 7         : 145.0
+MDNS           : 5         : 103.4
+Modbus/TCP     : 11227     : 67.9
+SSDP           : 4         : 217.0
+STP            : 60        : 64.0
+TCP            : 3         : 62.0
+
+............................................................
+                        Commands
+............................................................
+Read Discrete Inputs          : 2246
+Read Holding Registers        : 2244
+Read Input Registers          : 2245
+Write Multiple Coils          : 2246
+Write Multiple Registers      : 2246
+is at b                       : 5\Information Summary 01 221222
+Number of Samples: 11435
+
+............................................................
+Source - Destination               : Total Number
+............................................................
+169.254.149.247                    : 5613
+169.254.83.9                       : 5617
+239.255.255.250                    : 4
+255.255.255.255                    : 2
+Broadcast                          : 117
+CompalIn_a0:2a:f2                  : 5
+Raspberr_58:67:86                  : 5
+Spanning-tree-(for-bridges)_00     : 60
+ff02::1:2                          : 7
+ff02::fb                           : 5
+
+............................................................
+ Protocols, Total Number of them and their Average Lenghts
+Protocols       : Total Number   : Total Number
+............................................................
+ARP            : 127            : 59.29
+DHCP           : 2              : 342.0
+DHCPv6         : 7              : 145.0
+MDNS           : 5              : 103.4
+Modbus/TCP     : 11227          : 67.9
+SSDP           : 4              : 217.0
+STP            : 60             : 64.0
+TCP            : 3              : 62.0
+
+............................................................
+Commands                      : Total Number
+............................................................
+Read Discrete Inputs          : 2246
+Read Holding Registers        : 2244
+Read Input Registers          : 2245
+Write Multiple Coils          : 2246
+Write Multiple Registers      : 2246
+is at b                       : 5
+
+............................................................
+                not rounded Transmissions
+............................................................
+Query          : 1         2623.0, 
+Response       : 2         5610.0, 3535.0, \Information Summary 01 221222
+Number of Samples: 11435
+
+............................................................
+Source - Destination               : Total Number
+............................................................
+169.254.149.247                    : 5613
+169.254.83.9                       : 5617
+239.255.255.250                    : 4
+255.255.255.255                    : 2
+Broadcast                          : 117
+CompalIn_a0:2a:f2                  : 5
+Raspberr_58:67:86                  : 5
+Spanning-tree-(for-bridges)_00     : 60
+ff02::1:2                          : 7
+ff02::fb                           : 5
+
+............................................................
+ Protocols, Total Number of them and their Average Lenghts
+Protocols       : Total Number   : Total Number
+............................................................
+ARP            : 127            : 59.29
+DHCP           : 2              : 342.0
+DHCPv6         : 7              : 145.0
+MDNS           : 5              : 103.4
+Modbus/TCP     : 11227          : 67.9
+SSDP           : 4              : 217.0
+STP            : 60             : 64.0
+TCP            : 3              : 62.0
+
+............................................................
+Commands                      : Total Number
+............................................................
+Read Discrete Inputs          : 2246
+Read Holding Registers        : 2244
+Read Input Registers          : 2245
+Write Multiple Coils          : 2246
+Write Multiple Registers      : 2246
+is at b                       : 5
+
+............................................................
+                not rounded Transmissions
+............................................................
+Query          : 1         2623.0, 
+Response       : 2         5610.0, 3535.0, 

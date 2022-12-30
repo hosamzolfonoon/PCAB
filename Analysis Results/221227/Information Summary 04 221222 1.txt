@@ -1,0 +1,34 @@
+\Information Summary 04 221222
+Number of Samples: 11487
+
+............................................................
+                   Source - Destination
+............................................................
+169.254.149.247                    : 5647
+169.254.83.9                       : 5650
+239.255.255.250                    : 4
+255.255.255.255                    : 2
+Broadcast                          : 117
+CompalIn_a0:2a:f2                  : 4
+Raspberr_58:67:86                  : 4
+Spanning-tree-(for-bridges)_00     : 60
+
+............................................................
+ Protocols, Total Number of them and their Average Lenghts
+............................................................
+ARP            : 125       : 59.42
+DHCP           : 2         : 342.0
+Modbus/TCP     : 11297     : 67.9
+SSDP           : 4         : 217.0
+STP            : 60        : 64.0
+
+............................................................
+                        Commands
+............................................................
+NaN                           : 187
+Read Discrete Inputs          : 2258
+Read Holding Registers        : 2260
+Read Input Registers          : 2258
+Write Multiple Coils          : 2258
+Write Multiple Registers      : 2262
+is at b                       : 4
