@@ -53,7 +53,7 @@ def pcab_boxplot (filepath_input, filepath_output):
         #ax.set_ylabel('????')
 
     # Definigion of axes
-    fig, axs = plt.subplots(ncols=4, nrows=1, figsize=(30, 15))
+    fig, axs = plt.subplots(ncols=3, nrows=1, figsize=(30, 20))
 
     # Assignment of box plot parameters for 'Basic Time of Traffic Box Plot'
     color_box = color_list[0]
@@ -71,7 +71,7 @@ def pcab_boxplot (filepath_input, filepath_output):
     number_samples = len(x)
     box_plot(ax, x, color_box, boxplot_title, number_samples)
 
-    # Assignment of box plot parameters for 'Qu0eries time Box Plot'
+    '''# Assignment of box plot parameters for 'Queries time Box Plot'
     color_box = color_list[1]
     boxplot_title = 'Queries time Box Plot'
     ax = axs.flat[1]
@@ -99,13 +99,28 @@ def pcab_boxplot (filepath_input, filepath_output):
     if len(neg) > 0:
         print('Error')
     number_samples = len(x)
+    box_plot(ax, x, color_box, boxplot_title, number_samples)'''
+
+    # Assignment of box plot parameters for 'R_R Transmission time Box Plot'
+    color_box = color_list[1]
+    boxplot_title = 'R_R Transmission time Box Plot'
+    ax = axs.flat[1]
+    x = pcab_query_response['Response_time_diff']
+    ## Drop 'NaN' from data; however it is not necessary because it has done in analysis
+    x = x.dropna()
+    ## Check for negative data, if there is, it means I have made a mistake
+    ## however it is not necessary because it has done in analysis
+    neg = [x for x in x if x < 0]
+    if len(neg) > 0:
+        print('Error')
+    number_samples = len(x)
     box_plot(ax, x, color_box, boxplot_title, number_samples)
 
-    # Assignment of box plot parameters for 'Transmission time Box Plot'
-    color_box = color_list[3]
-    boxplot_title = 'Transmission time Box Plot'
-    ax = axs.flat[3]
-    x = pcab_query_response['Response_time_diff']
+      # Assignment of box plot parameters for 'Q_R Transmission time Box Plot'
+    color_box = color_list[2]
+    boxplot_title = 'Q_R Transmission time Box Plot'
+    ax = axs.flat[2]
+    x = pcab_query_response['Q_R_time_diff']
     ## Drop 'NaN' from data; however it is not necessary because it has done in analysis
     x = x.dropna()
     ## Check for negative data, if there is, it means I have made a mistake

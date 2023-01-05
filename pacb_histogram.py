@@ -31,7 +31,7 @@ def pacb_histogram (filepath_input, filepath_output):
 
     # Definigion of axes
     px = 1/plt.rcParams['figure.dpi']  # pixel in inches
-    fig, axs = plt.subplots(ncols=4, nrows=1, figsize=(30, 15))# constrained_layout=True)
+    fig, axs = plt.subplots(ncols=3, nrows=1, figsize=(30, 15))# constrained_layout=True)
 
     # Assignment of histogram parameters for 'Basic Time of Traffic histogram'
     color_hist = color_list[0]
@@ -48,7 +48,7 @@ def pacb_histogram (filepath_input, filepath_output):
         print('Error')
     histogram_plot(ax, df, x, k, color_hist, histogram_title, x_label)
 
-    # Assignment of histogram parameters for 'Queries time histogram'
+    '''# Assignment of histogram parameters for 'Queries time histogram'
     color_hist = color_list[1]
     histogram_title = 'Queries time histogram' + '\n Bin: ' + str(k)
     ax = axs.flat[1]
@@ -76,15 +76,15 @@ def pacb_histogram (filepath_input, filepath_output):
     neg = [x for x in x if x < 0]
     if len(neg) > 0:
         print('Error')
-    histogram_plot(ax, df, x, k, color_hist, histogram_title, x_label)
+    histogram_plot(ax, df, x, k, color_hist, histogram_title, x_label)'''
 
     # Assignment of histogram parameters for 'Transmission time histogram'
-    color_hist = color_list[3]
-    histogram_title = 'Transmission time histogram' + '\n Bin: ' + str(k)
-    ax = axs.flat[3]
+    color_hist = color_list[1]
+    histogram_title = 'R_R Transmission time Box Plot' + '\n Bin: ' + str(k)
+    ax = axs.flat[1]
     df = pcab_query_response
     x = pcab_query_response['Response_time_diff']
-    x_label = 'Transmission Time'
+    x_label = 'R_R Transmission Time'
     ## Drop 'NaN' from data
     x = x.dropna()
     ## Check for negative data, if there is, it means I have made a mistake
@@ -92,10 +92,25 @@ def pacb_histogram (filepath_input, filepath_output):
     if len(neg) > 0:
         print('Error')
     histogram_plot(ax, df, x, k, color_hist, histogram_title, x_label)
+
+    # Assignment of box plot parameters for 'Q_R Transmission time Box Plot'
+    color_hist = color_list[2]
+    histogram_title = 'Q_R Transmission time Box Plot' + '\n Bin: ' + str(k)
+    ax = axs.flat[2]
+    x = pcab_query_response['Q_R_time_diff']
+    x_label = 'Q_R Transmission Time'
+    ## Drop 'NaN' from data; however it is not necessary because it has done in analysis
+    x = x.dropna()
+    ## Check for negative data, if there is, it means I have made a mistake
+    ## however it is not necessary because it has done in analysis
+    neg = [x for x in x if x < 0]
+    if len(neg) > 0:
+        print('Error')
+    histogram_plot(ax, df, x, k, color_hist, histogram_title, x_label)
     plt.savefig(filepath_output)
 
 filepath_output_analysis = r'C:\Users\hosam\Documents\Professor Bruno\OpenPLC\PCAB\Analysis Results'
-filepath_output_histograms = r'C:\Users\hosam\Documents\Professor Bruno\OpenPLC\PCAB\Pcab BoxPlot'
+filepath_output_histograms = r'C:\Users\hosam\Documents\Professor Bruno\OpenPLC\PCAB\Pcab Histograms'
 
 os.chdir(r'C:\Users\hosam\Documents\Professor Bruno\OpenPLC\PCAB\Analysis Results')
 for file_01 in glob.glob('*.csv'):

@@ -162,11 +162,17 @@ def pcab_analysis (filepath_input, filepath_output):
     ### Extracting all 'Trans' items after omitting 
     transactions_items = list(pcab_query_response['Trans'].unique())
     ### Make a list with the same length of columns
-    Time_Trans = [np.nan]*len(pcab_query_response.index)
+    Time_Trans_Q_R = [np.nan]*len(pcab_query_response.index)
+    ### Calculating Transmission time Response - Query, then manupulate the list and assign related column
+    for i in range(0,len(transactions_items),2):
+        Time_Trans_Q_R[i+1] = times_origin_01[i+1] - times_origin_01[i]
+    pcab_query_response = pcab_query_response.assign(Q_R_time_diff = Time_Trans_Q_R)
+    ### Make a list with the same length of columns
     times_origin_response = list(pcab_query_response[pcab_query_response['Info_01'] == 'Response']['Time'])
-    ### Calculating Transmission time, then manupulate the list and assign related column
-    for i in range(1,len(transactions_items)-1):
-        Time_Trans[(i+1)*2] = times_origin_response[i+1] - times_origin_response[i]
+    Time_Trans = [np.nan]*len(pcab_query_response.index)
+    ### Calculating Transmission time Response - Response, then manupulate the list and assign related column
+    for i in range(0,len(transactions_items)-1):
+        Time_Trans[(i+1)*2-1] = times_origin_response[i+1] - times_origin_response[i]
     pcab_query_response = pcab_query_response.assign(Response_time_diff = Time_Trans)
     # Generating txt Report
     txt_path = '\Information Summary' + filepath_input[-14:-4] + '.txt'
@@ -181,8 +187,7 @@ def pcab_analysis (filepath_input, filepath_output):
         f.write('\n' + str(item) + ' '*(35-len(item)) + ': ' + str(destination_ip[item]))
     f.write('\n' +
             '\n............................................................' +
-            '\n Protocols, Total Number of them and their Average Lenghts' +
-            '\nProtocols' + ' '*(15-len(item)) + ': ' + 'Total Number' + ' '*(15-len(str('Total Number'))) + ': ' + 'Total Number'
+            '\nProtocols' + ' '*(15-len(str('Protocols'))) + ': ' + 'Total Number' + ' '*(15-len(str('Total Number'))) + ': ' + 'Mean of Lenght' +
             '\n............................................................')
     for item in protocol_items_size.keys():
         f.write('\n' + str(item) + ' '*(15-len(item)) + ': ' + str(protocol_items_size[item]) + ' '*(15-len(str(protocol_items_size[item]))) +
@@ -196,14 +201,16 @@ def pcab_analysis (filepath_input, filepath_output):
     f.write('\n' +
             '\n............................................................' +
             '\n                not rounded Transmissions' +
+            '\n' +
+            '\nType of Transmission' + ': Counts' + ' '*4 + ': Trans Number'
             '\n............................................................')
     
-    f.write('\n' + 'Query' + ' '*(10) + ': ' + str(len(trans_no_query)) + ' '*(10-len(str(len(trans_no_query)))))
+    f.write('\n' + 'Query' + ' '*(15) + ': ' + str(len(trans_no_query)) + ' '*(10-len(str(len(trans_no_query)))) + ': ') 
     for item in trans_no_query:
-         f.write(str(item) + ', ')
-    f.write('\n' + 'Response' + ' '*(7) + ': ' + str(len(trans_no_response)) + ' '*(10-len(str(len(trans_no_response)))))
+         f.write(str(int(item)) + ', ')
+    f.write('\n' + 'Response' + ' '*(12) + ': ' + str(len(trans_no_response)) + ' '*(10-len(str(len(trans_no_response))))+ ': ')
     for item in trans_no_response:
-         f.write(str(item) + ', ')
+         f.write(str(int(item)) + ', ')
 
     f.close()
 
